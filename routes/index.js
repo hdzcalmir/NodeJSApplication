@@ -16,6 +16,9 @@ router.use('/login', require('../controllers/loginController'));
 // })
 router.use('/admin', require('./admin'));
 
+// kada se opetarter logina koristi se route /operater
+router.use('/operater', require('./operater'))
+
 // router za odjavu, koji geta fajl iz require patha
 router.use('/logout', require('./logout'))
 
