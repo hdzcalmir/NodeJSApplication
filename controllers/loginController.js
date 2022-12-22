@@ -18,13 +18,18 @@ const loginController = (req, res) => {
             // pronadjenih korisnika jednako broju jedan
             if (docs.length === 1) {
                 let user = docs[0];
+                // console.log(user); za DEBUG
                 // setali smo sesiju
                 req.session.user = user;
                 if (user.role == 'admin') {
                     res.redirect('/admin');
                 } else if (user.role == 'operater') {
                     res.redirect('/operater');
-                } else {
+                } else if (user.role == 'savjetnik') {
+                    // console.log('Radi'); debug
+                    res.redirect('/savjetnik');
+                }
+                else {
                     res.redirect('/');
                 }
             } else {

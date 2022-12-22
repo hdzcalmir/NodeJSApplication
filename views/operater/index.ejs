@@ -243,8 +243,8 @@
                                         class="mdi mdi-settings me-1 ms-1"></i> Account
                                     Setting</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="javascript:void(0)"><i
-                                        class="fa fa-power-off me-1 ms-1"></i> Logout</a>
+                                <a class="dropdown-item" href="/logout"><i class="fa fa-power-off me-1 ms-1"></i>
+                                    Logout</a>
                                 <div class="dropdown-divider"></div>
                                 <div class="ps-4 p-10">
                                     <a href="javascript:void(0)"
@@ -277,9 +277,12 @@
                                     class="hide-menu">Dashboard</span></a>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="charts.html"
-                                aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span
-                                    class="hide-menu">Termini</span></a>
+                            <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/termini"
+                                aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span class="hide-menu">Termini
+                                    <span>
+                                        <!-- ispisat ce nam broj termina pored termini u sidebaru -->
+                                        <%= brojTermina %>
+                                    </span></span></a>
                         </li>
 
                     </ul>
@@ -306,7 +309,7 @@
                             <h4 class="page-title">Dobrodošao operateru, <%= name %>
                             </h4>
                             <div class="ms-auto text-end">
-                                <button type="button" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary">
                                     Potvrdi
                                 </button>
                             </div>
@@ -417,7 +420,12 @@
                                         <label class="col-md-3 m-t-15">Savjetnik</label>
                                         <div class="col-md-9">
                                             <select name="savjetnik" id="savjetnik" class="form-control m-t-10">
-                                                <option value="">Ibrahim</option>
+                                                <% savjetnici.forEach(savjetnik=> {%>
+                                                    <option
+                                                        value="<%= savjetnik.firstname + ' ' + savjetnik.lastName %>">
+                                                        <%= savjetnik.firstname + ' ' + savjetnik.lastName %>
+                                                    </option>
+                                                    <% }) %>
                                             </select>
                                         </div>
                                     </div>
@@ -425,7 +433,11 @@
                                         <label class="col-md-3 m-t-15">Mjesto rada</label>
                                         <div class="col-md-9">
                                             <select name="grad" id="grad" class="form-control m-t-10">
-                                                <option value="">Srebrenik</option>
+                                                <% gradovi.forEach(grad=> { %>
+                                                    <option value="<%= grad.imeGrada  %>">
+                                                        <%= grad.imeGrada %>
+                                                    </option>
+                                                    <% }); %>
                                             </select>
                                         </div>
                                     </div>

@@ -16,11 +16,14 @@ router.use('/login', require('../controllers/loginController'));
 // })
 router.use('/admin', require('./admin'));
 
-// kada se opetarter logina koristi se route /operater
-router.use('/operater', require('./operater'))
+// kada se operater logina koristi se route /operater
+router.use('/operater', require('./operater'));
+
+// kada se logina savjetnik koristi se route /savjetnik
+router.use('/savjetnik', require('./savjetnik'));
 
 // router za odjavu, koji geta fajl iz require patha
-router.use('/logout', require('./logout'))
+router.use('/logout', require('./logout'));
 
 
 module.exports = router;
