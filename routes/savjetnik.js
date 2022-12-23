@@ -5,4 +5,8 @@ const router = express.Router();
 
 router.get('/', require('../controllers/savjetnik/savjetnikController'));
 
+router.get('/termin/:id', require('../controllers/savjetnik/showTerminController'));
+
+router.post('/izvjestaj/:id', require('../controllers/savjetnik/izvjestajController'));
+
 module.exports = router;

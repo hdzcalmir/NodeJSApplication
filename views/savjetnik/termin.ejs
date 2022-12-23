@@ -11,13 +11,14 @@
     <meta name="description"
         content="Matrix Admin Lite Free Version is powerful and clean admin dashboard template, inpired from Bootstrap Framework" />
     <meta name="robots" content="noindex,nofollow" />
-    <title>Matrix Admin Lite Free Versions Template by WrapPixel</title>
+    <title>Termin - <%= termin.imeStranke %>
+    </title>
     <!-- Favicon icon -->
-    <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon.png" />
     <!-- Custom CSS -->
-    <link href="../assets/libs/flot/css/float-chart.css" rel="stylesheet" />
+    <link href="../../assets/libs/flot/css/float-chart.css" rel="stylesheet" />
     <!-- Custom CSS -->
-    <link href="../dist/css/style.min.css" rel="stylesheet" />
+    <link href="../../dist/css/style.min.css" rel="stylesheet" />
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -55,7 +56,7 @@
                         <b class="logo-icon ps-2">
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
-                            <img src="../assets/images/logo-icon.png" alt="homepage" class="light-logo" width="25" />
+                            <img src="../../assets/images/logo-icon.png" alt="homepage" class="light-logo" width="25" />
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text -->
@@ -316,7 +317,7 @@
             <div class="page-breadcrumb">
                 <div class="row">
                     <div class="col-12 d-flex no-block align-items-center">
-                        <h4 class="page-title">Termini</h4>
+                        <h4 class="page-title">Detalji termina</h4>
                         <div class="ms-auto text-end">
                             <nav aria-label="breadcrumb">
                             </nav>
@@ -336,36 +337,54 @@
                 <!-- ============================================================== -->
                 <div class="row">
                     <!-- Column -->
-                    <% if(termini.length==0) { %>
-                        <div class="col-md-6 col-lg-2 col-xlg-3">
-                            <div class="card card-hover">
-                                <div class="box bg-danger text-center">
-                                    <h1 class="font-light text-white">
-                                        Trenutno nemate aktivnih termina!
-                                    </h1>
-                                </div>
+                    <div class="col-md-6 col-lg-2 col-xlg-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <%= termin.vrijemeTermina %> h
+                                        <span class="float-end">
+                                            <%= termin.datumZakazivanja %>
+                                        </span>
+                                </h5>
+                            </div>
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    Stranka: <button class="btn btn-sm btn-info form-control">
+                                        <%= termin.imeStranke + ' ' + termin.prezimeStranke%>
+                                    </button>
+                                </li>
+                                <li class="list-group-item">
+                                    Godište: <button class="btn btn-sm btn-info form-control">
+                                        <%= termin.godisteStranke %>
+                                    </button>
+                                </li>
+                                <li class="list-group-item">
+                                    Fiksni telefon: <button class="btn btn-sm btn-info form-control">
+                                        <%= termin.fiksniTelefon %>
+                                    </button>
+                                </li>
+                                <li class="list-group-item">
+                                    Adresa: <button class="btn btn-sm btn-info form-control">
+                                        <%= termin.adresa %>
+                                    </button>
+                                </li>
+                                <li class="list-group-item">
+                                    Mobilni telefon: <button class="btn btn-sm btn-info form-control">
+                                        <%= termin.mobilniTelefon %>
+                                    </button>
+                                </li>
+                            </ul>
+                            <div class="card-footer">
+                                <form action="/savjetnik/izvjestaj/<%= termin._id %> " method="POST">
+                                    <button class="btn btn-danger form-control" type="submit">
+                                        Zatvori termin
+                                    </button>
+                                </form>
                             </div>
                         </div>
-                        <% } else {%>
-                            <% termini.forEach(termin=> { %>
-                                <a href="/savjetnik/termin/<%= termin._id %> ">
-                                    <div class="col-md-6 col-lg-2 col-xlg-3">
-                                        <div class="card card-hover">
-                                            <div class="box bg-cyan text-center">
-                                                <h1 class="font-light text-white">
-                                                    <%= termin.imeStranke + ' ' + termin.prezimeStranke %>
-                                                </h1>
-                                                <h6 class="text-white">
-                                                    <%= termin.datumZakazivanja + ' ' + termin.vrijemeTermina %>
-                                                </h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                                <% }) %>
-                                    <% } %>
+                    </div>
 
-                                        <!-- Column -->
+                    <!-- Column -->
                 </div>
                 <!-- ============================================================== -->
                 <!-- Sales chart -->
@@ -404,28 +423,28 @@
     <!-- ============================================================== -->
     <!-- All Jquery -->
     <!-- ============================================================== -->
-    <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="../../assets/libs/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap tether Core JavaScript -->
-    <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
-    <script src="../assets/extra-libs/sparkline/sparkline.js"></script>
+    <script src="../../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+    <script src="../../assets/extra-libs/sparkline/sparkline.js"></script>
     <!--Wave Effects -->
-    <script src="../dist/js/waves.js"></script>
+    <script src="../../dist/js/waves.js"></script>
     <!--Menu sidebar -->
-    <script src="../dist/js/sidebarmenu.js"></script>
+    <script src="../../dist/js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
-    <script src="../dist/js/custom.min.js"></script>
+    <script src="../../dist/js/custom.min.js"></script>
     <!--This page JavaScript -->
     <!-- <script src="../dist/js/pages/dashboards/dashboard1.js"></script> -->
     <!-- Charts js Files -->
-    <script src="../assets/libs/flot/excanvas.js"></script>
-    <script src="../assets/libs/flot/jquery.flot.js"></script>
-    <script src="../assets/libs/flot/jquery.flot.pie.js"></script>
-    <script src="../assets/libs/flot/jquery.flot.time.js"></script>
-    <script src="../assets/libs/flot/jquery.flot.stack.js"></script>
-    <script src="../assets/libs/flot/jquery.flot.crosshair.js"></script>
-    <script src="../assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
-    <script src="../dist/js/pages/chart/chart-page-init.js"></script>
+    <script src="../../assets/libs/flot/excanvas.js"></script>
+    <script src="../../assets/libs/flot/jquery.flot.js"></script>
+    <script src="../../assets/libs/flot/jquery.flot.pie.js"></script>
+    <script src="../../assets/libs/flot/jquery.flot.time.js"></script>
+    <script src="../../assets/libs/flot/jquery.flot.stack.js"></script>
+    <script src="../../assets/libs/flot/jquery.flot.crosshair.js"></script>
+    <script src="../../assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
+    <script src="../../dist/js/pages/chart/chart-page-init.js"></script>
 </body>
 
 </html>
