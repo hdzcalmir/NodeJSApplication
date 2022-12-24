@@ -33,6 +33,8 @@ router.post('/create/grad/save', require('../controllers/admin/gradController'))
 
 router.post('/create/proizvod/save', require('../controllers/admin/proizvodController'));
 
+// savjetnik
+router.get('/savjetnik/termini/:name', require('../controllers/admin/savjetnikTerminiController'));
 
 function checkAdmin(req, res, next) {
     // iz sesije uzimamo trenutacno logovanog usera
