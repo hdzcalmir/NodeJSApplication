@@ -45,6 +45,24 @@ app.set('view engine', 'ejs');
 
 app.use('/', routes);
 
+// kada dizemo na digital ocean ili slicno
+// koristit cemo mongodb droplet u ovom slucaju i
+// na masinu instaliramo sve kao na nasem powershellu
+// u biti idalje sve radimo preko cmd, samo sto je 
+// u ovom slucaju linu
+
+// za pokretanje db koristimo mongod.exe za mongo shell 
+// nakon toga koristimo mongo.exe
+
+// za brisanje svega u db koristimo db.users.remove({})
+
+// takodjer posjedujemo i exit komandu, nakon manuelnog
+// upisa u db idemo exit 
+
+// kada dizemo projekat, port ne moze biti 3000
+// jer to tipa digital ocean ne podrzava na https
+// protokolu,
+// PA JE NAJBOLJE DA STAVIMO PORT 80
 app.listen(3000, () => {
     console.log('Listening to port 3000');
 })
