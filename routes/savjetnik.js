@@ -21,7 +21,7 @@ function checkSavjetnik(req, res, next) {
             // tome i sluzi next();
             next();
         } else {
-            // u slusaju da user nije admin pristup admin starnici mu nece
+            // u slucaju da user nije admin pristup admin starnici mu nece
             // biti omogucen
             res.redirect('/');
         }
